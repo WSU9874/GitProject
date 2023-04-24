@@ -5,10 +5,6 @@ import java.util.Scanner;
 public class OutputClass {
 	inputClass ipc = new inputClass();
 	RunTicketClass rtc = new RunTicketClass();
-	
-	
-	
-	
 	Scanner scanner = new Scanner(System.in);
 
 	public void pricePrint(int priceResult) {
@@ -20,7 +16,6 @@ public class OutputClass {
 		System.out.printf("티켓 발권을 종료합니다. 감사합니다.\n");
 		System.out.printf("\n");
 		System.out.printf("===============에버랜드===============\n");
-
 		
 		for (int i = 0; i < cnt; i++) {
 			switch (orderList[i][0]) {

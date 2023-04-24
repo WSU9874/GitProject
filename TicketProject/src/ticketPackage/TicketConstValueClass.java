@@ -3,7 +3,6 @@ package ticketPackage;
 
 public class TicketConstValueClass {
 	
-
 		public static final int BABY_PRICE= 0;
 		public static final int ADULT_DAY_PRICE = 56000;
 		public static final int ADULT_NIGHT_PRICE = 46000;
@@ -13,7 +12,6 @@ public class TicketConstValueClass {
 		public static final int CHILD_NIGHT_PRICE = 37000;
 		public static final int OLD_DAY_PRICE = 44000;
 		public static final int OLD_NIGHT_PRICE = 37000;
-		
 		
 		public static final long FULL_DIGIT = 10000000000000L;
 		public static final long FULL_DIGIT_MIN = 10000000000L;

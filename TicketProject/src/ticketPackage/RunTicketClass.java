@@ -67,7 +67,6 @@ public class RunTicketClass {
 		}
 		return 0;
 
-
 	}
 
 	public int calcPriceProcess(int age, int ticketSelect) {
@@ -145,34 +144,15 @@ public class RunTicketClass {
 	public int[][] saveOrderList(int ticketSelect, int age, int orderCount, int priceResult,
 								int discountSelect, int[][] orderList, int cnt) {
 		
-
 		orderList[cnt][0] = ticketSelect;
 		orderList[cnt][1] = age;
 		orderList[cnt][2] = orderCount;
 		orderList[cnt][3] = priceResult;
 		orderList[cnt][4] = discountSelect;
 		
-
 	return orderList;
 		
 	}
-
-//	public List<Integer> saveOrderList(int ticketSelect, int age, int orderCount, int priceResult, int discountSelect,
-//			List<Integer> orderList , int cnt) {
-//		
-//
-//		OrderList order = new OrderList();
-//		
-//		
-//		orderList.add(ticketSelect);
-//		orderList.add(age);
-//		orderList.add(orderCount);
-//		orderList.add(priceResult);
-//		orderList.add(discountSelect);
-//
-//		return orderList;
-//	}
-
 }
 
 

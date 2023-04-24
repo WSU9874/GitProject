@@ -9,7 +9,6 @@ public class inputClass {
 		return ticketSelect;
 		
 	}
-
 	public static void setTicketSelect(int ticketSelect) {
 		inputClass.ticketSelect = ticketSelect;
 	}

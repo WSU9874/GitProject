@@ -16,33 +16,18 @@ public class Ticket {
 		int processIntegerationResult;
 		int[][] orderList = new int[100][5];
 		
-//		ticketSelect = ipc.inputTicketSelect();
-//		customerIDNumber = ipc.inputCustomerIDNumber();
-//		orderCount = ipc.inputOrderCount();
-//		discountSelect = ipc.inputDiscountSelect();
-//		
-//		age = rtc.calcAge(customerIDNumber);
-//		int agegroup = rtc.calcAgeGroup(age);
-//		int calcPrice = rtc.calcPriceProcess(age,ticketSelect);
-//		int Discount = rtc.calcDiscount(age, ticketSelect, calcPrice, discountSelect);
-//		priceResult = rtc.calcPriceResult(Discount, orderCount);
-//		
-//		System.out.println(priceResult);
-		
 		Scanner scanner = new Scanner(System.in);
 		int cnt = 0;
 		int totalPrice = 0;
-		int isExit = 0;
+		int isExit;
 		do {
 			while (true) {
 				
-
 				ipc.inputData();
 				customerIDNumber = inputClass.getCustomerIDNumber();
 				ticketSelect = inputClass.getTicketSelect();
 				discountSelect = inputClass.getDiscountSelect();
 				orderCount = inputClass.getOrderCount();
-				
 				
 				processIntegerationResult = rtc.processIntegration(customerIDNumber, 
 																ticketSelect,
@@ -50,14 +35,12 @@ public class Ticket {
 																age);
 				age = rtc.calcAge(customerIDNumber);
 				
-				
 				opc.pricePrint(processIntegerationResult);
 				
 				totalPrice += processIntegerationResult;
 				
 				orderList = rtc.saveOrderList(ticketSelect, age, orderCount, processIntegerationResult, discountSelect,
-									orderList, cnt);
-				//System.out.println("==============="+orderList[0][4]);			
+									orderList, cnt);	
 
 				continueSelect = opc.orderContinue();
 				cnt++;
