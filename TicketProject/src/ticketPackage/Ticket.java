@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Ticket {
 
 	public static void main(String[] args) {
+
+		// System.out.println("locale : " + currentLocale.getCountry());
+		// TicketConstValueClass.startLanguage(currentlocale.getCountry);
+
 		inputClass ipc = new inputClass();
 		RunTicketClass rtc = new RunTicketClass();
 		OutputClass opc = new OutputClass();
@@ -15,7 +19,7 @@ public class Ticket {
 		int ticketSelect = 0, orderCount = 0, discountSelect = 0, agegroup, totalPrice = 0, calcPrice, Discount;
 		int continueSelect, totalResultPrice = 0, isExit = 0;
 
-		do {
+		while (true) {
 			do {
 				ticketSelect = ipc.inputTicketSelect();
 				customerIDNumber = ipc.inputCustomerIDNumber();
@@ -31,10 +35,21 @@ public class Ticket {
 				totalResultPrice += totalPrice;
 			} while (continueSelect == 1);
 			opc.orderPrint(totalResultPrice);
+			opc.RunTranslate();
+			System.out.println(TicketConstValueClass.KEEP_ORDERING);
 
-			System.out.println("계속 진행(1: 새로운 주문, 2: 프로그램 종료): ");
-			isExit = scanner.nextInt();
+			do {
+				isExit = scanner.nextInt();
+				if (isExit != 1 && isExit != 2) {
+					System.out.println(TicketConstValueClass.ENTER_AGAIN);
+				}
+			} while (isExit != 1 && isExit != 2);
 
-		} while (isExit == 1);
+			if (isExit == 1) {
+				continue;
+			} else if (isExit == 2) {
+				break;
+			}
+		}
 	}
 }
