@@ -5,10 +5,6 @@ import java.util.Scanner;
 public class Ticket {
 
 	public static void main(String[] args) {
-
-		// System.out.println("locale : " + currentLocale.getCountry());
-		// TicketConstValueClass.startLanguage(currentlocale.getCountry);
-
 		inputClass ipc = new inputClass();
 		RunTicketClass rtc = new RunTicketClass();
 		OutputClass opc = new OutputClass();
