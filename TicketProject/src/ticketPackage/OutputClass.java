@@ -5,14 +5,9 @@ import java.util.Scanner;
 
 public class OutputClass {
 	Scanner scanner = new Scanner(System.in);
-	Locale currentLocale = Locale.getDefault();
-//	system.out.println("locale : " + currentLocale.getCountry());
-	String country = "KR";
 	
 	public void RunTranslate() {
-//		TicketConstValueClass.language = currentLocale.getCountry();
-//		country = TicketConstValueClass.language;
-		TicketConstValueClass.startLanguage(country);
+		TicketConstValueClass.startLanguage();
 	}
 	
 	public void PrintinputTicketSelect() {
@@ -69,7 +64,7 @@ public class OutputClass {
 			else if (order.getAgegroup() == 5)
 				System.out.print(TicketConstValueClass.oldman);
 
-			System.out.printf("x %d\t%d원  \t", order.getOrderCount(), order.getTotalPrice());
+			System.out.printf("x %d\t\\%d  \t", order.getOrderCount(), order.getTotalPrice());
 
 			switch (order.getDiscountSelect()) {
 			case 1:
