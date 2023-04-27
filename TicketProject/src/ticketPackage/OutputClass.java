@@ -1,87 +1,98 @@
 package ticketPackage;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class OutputClass {
 	Scanner scanner = new Scanner(System.in);
-
+	Locale currentLocale = Locale.getDefault();
+//	system.out.println("locale : " + currentLocale.getCountry());
+	String country = "KR";
+	
+	public void RunTranslate() {
+//		TicketConstValueClass.language = currentLocale.getCountry();
+//		country = TicketConstValueClass.language;
+		TicketConstValueClass.startLanguage(country);
+	}
+	
 	public void PrintinputTicketSelect() {
-		System.out.println("권종을 선택하세요.\n1. 주간권\n2. 야간권\n");
+		RunTranslate();
+		System.out.println(TicketConstValueClass.SELECT_TICKET_TYPE);
+		System.out.println(TicketConstValueClass.dayTicket);
+		System.out.println(TicketConstValueClass.nightTicket);
 	}
 
 	public void PrintinputCustomerIDNumber() {
-		System.out.println("주민등록번호를 입력하세요.(13자리)\n");
+		System.out.println(TicketConstValueClass.INPUT_ID);
 	}
 
 	public void PrintinputOrderCount() {
-		System.out.println("몇개를 주문하시겠습니까(최대 10개)\n");
+		System.out.println(TicketConstValueClass.HOW_MANY_TICKET_BUY);
 	}
 
 	public void PrintinputDiscountSelect() {
-		System.out.println("우대사항을 선택하세요.\n1. 없음\n2. " + "장애인\n3. 국가유공자\n4. 다자녀\n5. 임산부\n");
+		System.out.println(TicketConstValueClass.CHOOSE_BENIFIT_NUMBER);
 	}
 
 	public void errorMessagePrint() {
-		System.out.printf("잘못 입력하셨습니다.\n");
+		System.out.println(TicketConstValueClass.ENTER_AGAIN);
 	}
 
 	public void pricePrint(int priceResult) {
-		System.out.printf("가격은 %d 원 입니다.\n", priceResult);
-		System.out.printf("감사합니다.\n\n");
+		System.out.printf(TicketConstValueClass.TOTAL_PRICE, priceResult);
 	}
 
 	public void PrintOrderContinue() {
-
-		System.out.printf("계속 발권 하시겠습니까?\n");
-		System.out.printf("1. 티켓 발권\n");
-		System.out.printf("2. 종료\n");
+		System.out.println(TicketConstValueClass.KEEP_BUY_TICKET);
+		System.out.println(TicketConstValueClass.KEEP_BUY_TICKET_GOING);
+		System.out.println(TicketConstValueClass.KEEP_BUY_TICKET_STOP);
 	}
 
 	public void orderPrint(int totalPrice1) {
-		System.out.printf("티켓 발권을 종료합니다. 감사합니다.\n");
+		System.out.println(TicketConstValueClass.EXIT_TICKET_PROGRAM);
 		System.out.printf("\n");
-		System.out.printf("===============에버랜드===============\n");
+		System.out.println(TicketConstValueClass.EVERLAND);
 		for (OrderList order : RunTicketClass.data) {
 			if (order.getTicketSelect() == 1)
-				System.out.print("주간권 ");
+				System.out.print(TicketConstValueClass.SELECT_TICKET_TYPE_DAY);
 			else
-				System.out.print("야간권 ");
+				System.out.print(TicketConstValueClass.SELECT_TICKET_TYPE_NIGHT);
 
 			if (order.getAgegroup() == 1)
-				System.out.println("유아   ");
+				System.out.println(TicketConstValueClass.baby);
 			else if (order.getAgegroup() == 2)
-				System.out.print("소인   ");
+				System.out.print(TicketConstValueClass.kid);
 			else if (order.getAgegroup() == 3)
-				System.out.print("청소년   ");
+				System.out.print(TicketConstValueClass.teen);
 			else if (order.getAgegroup() == 4)
-				System.out.print("대인   ");
+				System.out.print(TicketConstValueClass.adult);
 			else if (order.getAgegroup() == 5)
-				System.out.print("노인   ");
+				System.out.print(TicketConstValueClass.oldman);
 
 			System.out.printf("x %d\t%d원  \t", order.getOrderCount(), order.getTotalPrice());
 
 			switch (order.getDiscountSelect()) {
 			case 1:
-				System.out.printf("*우대적용 없음\n");
+				System.out.println(TicketConstValueClass.forNone);
 				break;
 			case 2:
-				System.out.printf("*장애인 우대적용\n");
+				System.out.println(TicketConstValueClass.forDisabled);
 				break;
 			case 3:
-				System.out.printf("*국가유공자 우대적용\n");
+				System.out.println(TicketConstValueClass.forMerities);
 				break;
 			case 4:
-				System.out.printf("*다자녀 우대적용\n");
+				System.out.println(TicketConstValueClass.forMultiChild);
 				break;
 			case 5:
-				System.out.printf("*임산부 우대적용\n");
+				System.out.println(TicketConstValueClass.forPregnant);
 				break;
 			default:
 
 			}
 		}
 		System.out.printf("\n");
-		System.out.printf("입장료 총액은 %d원 입니다.\n", totalPrice1);
+		System.out.printf(TicketConstValueClass.PRINT_TOTAL_PRICE, totalPrice1);
 		System.out.printf("===================================================\n");
 		System.out.printf("\n");
 
