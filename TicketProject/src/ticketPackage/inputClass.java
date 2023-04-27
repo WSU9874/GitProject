@@ -6,7 +6,7 @@ public class inputClass {
 	OutputClass opc = new OutputClass();
 	Scanner scanner = new Scanner(System.in);
 
-	public int inputTicketSelect() {
+	public int inputTicketSelect() {		
 		int ticketSelect = 0;
 		opc.PrintinputTicketSelect();
 		while (true) {
@@ -62,7 +62,7 @@ public class inputClass {
 		}
 		return discountSelect;
 	}
-
+	
 	public int orderContinue() {
 		int continueSelect;
 		opc.PrintOrderContinue();
@@ -77,3 +77,6 @@ public class inputClass {
 		return continueSelect;
 	}
 }
+
+
+
