@@ -1,6 +1,13 @@
 package ticketPackage;
 
-import java.util.Locale;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class OutputClass {
@@ -47,6 +54,8 @@ public class OutputClass {
 		System.out.println(TicketConstValueClass.EXIT_TICKET_PROGRAM);
 		System.out.printf("\n");
 		System.out.println(TicketConstValueClass.EVERLAND);
+		
+		
 		for (OrderList order : RunTicketClass.data) {
 			if (order.getTicketSelect() == 1)
 				System.out.print(TicketConstValueClass.SELECT_TICKET_TYPE_DAY);
@@ -85,11 +94,25 @@ public class OutputClass {
 			default:
 
 			}
+			try {
+				FileWriter fw = new FileWriter("C:\\Users\\w\\Desktop\\report.csv", true);
+				LocalDateTime currentDateTime = LocalDateTime.now();
+				fw.write(currentDateTime + "," + order.getTicketSelect() + "," + order.getAgegroup() + ","
+						+ order.getOrderCount() + "," + order.getTotalPrice() + "," + order.getDiscountSelect() + "\n");
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		}
+
 		System.out.printf("\n");
 		System.out.printf(TicketConstValueClass.PRINT_TOTAL_PRICE, totalPrice1);
 		System.out.printf("===================================================\n");
 		System.out.printf("\n");
 
+		// currentDateTime, 권종, 연령구분, 수량 , 가격, 우대사항
+
 	}
+
 }
