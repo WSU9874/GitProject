@@ -44,7 +44,7 @@ public class Ticket {
 			if (isExit == 1) {
 				continue;
 			} else if (isExit == 2) {
-				break;
+				break;	
 			}
 		}
 	}
